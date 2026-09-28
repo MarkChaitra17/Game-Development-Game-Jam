@@ -1,3 +1,4 @@
 session,date,minutes,tool,model,tokens_in,tokens_out,tokens_source,prompts,features,llm_helpfulness,notes
 1,2026-09-16,10,claude-code,claude-sonnet-5,N/A,N/A,ccusage incl. cache,2,window;states;movement;player;enemies;restart-screen;health,5,"best: code worked perfectly first try;"
-1,2026-09-27,100,claude-code,claude-sonnet-5,N/A,N/A,ccusage incl. cache,9,window;states;movement;player;enemies;restart-screen;health,5,"best: code worked perfectly first try;"
+2,2026-09-27,100,claude-code,claude-sonnet-5,N/A,N/A,ccusage incl. cache,13,assets;animation;skills-control;waves;points;movement-improvements,5,"best: Implemented skills options in one go; Bad: Changed movement without prompting"
+3,2026-09-28,40,Deep-seek, DeepSeek-V4.1-Flash,N/A,N/A,dsusage incl. cache,2,movement-improvements;skills-balancing,4,"best: Fixed movement issues; Bad: Changed zombie spawn without being prompted;"
