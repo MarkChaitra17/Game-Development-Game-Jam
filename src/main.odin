@@ -54,10 +54,10 @@ SPEED_PER_PURCHASE :: 10.0
 
 BULLET_RADIUS_BASE         :: 2.0
 BULLET_RADIUS_MAX          :: 5.0
-BULLET_RADIUS_COST         :: 8
+BULLET_RADIUS_COST         :: 6
 BULLET_RADIUS_PER_PURCHASE :: 1.0
 
-COOLDOWN_BASE          :: 1.2
+COOLDOWN_BASE          :: 1.0
 COOLDOWN_MIN           :: 0.2
 COOLDOWN_COST          :: 8
 COOLDOWN_PER_PURCHASE  :: 0.1
@@ -66,7 +66,7 @@ COOLDOWN_PER_PURCHASE  :: 0.1
 // BOMB_RADIUS pixels of the player. Not a permanent stat upgrade like
 // the others above - each purchase spends points and detonates once.
 BOMB_COST         :: 30
-BOMB_RADIUS       :: 80
+BOMB_RADIUS       :: 120
 BOMB_FLASH_TIME   :: 0.25 // how long the explosion ring is drawn for
 
 // Aim line: a faint red line from the player in the direction they face.
@@ -75,7 +75,7 @@ AIM_LINE_COLOR :: rl.Color{255, 60, 60, 80}
 
 // ---------------- Enemy player settings ----------------
 ENEMY_PLAYER_CHECK_INTERVAL :: 10.0  // roll for a spawn every 10 seconds
-ENEMY_PLAYER_SPAWN_CHANCE   :: 0.15 // 15% chance per roll
+ENEMY_PLAYER_SPAWN_CHANCE   :: 0.25 // 25% chance per roll
 ENEMY_PLAYER_RADIUS         :: 22.0
 ENEMY_PLAYER_HEALTH         :: 1     // one shot kills
 ENEMY_PLAYER_SHOOT_INTERVAL :: 4.0   // seconds between shots
@@ -87,12 +87,12 @@ ENEMY_PLAYER_WALL_MARGIN    :: 60.0 // how far from the wall the enemy player ca
 KILLS_PER_WAVE          :: 20  // score needed to advance to the next wave
 BASE_SPAWN_INTERVAL     :: 2.0
 SPAWN_INTERVAL_DECREASE :: 0.2
-SPAWN_INTERVAL_MIN      :: 0.5
+SPAWN_INTERVAL_MIN      :: 0.4
 BASE_ENEMY_SPEED_MIN    :: 40.0
 BASE_ENEMY_SPEED_MAX    :: 80.0
 ENEMY_SPEED_INCREASE    :: 10.0
-ENEMY_SPEED_MIN_CAP     :: 140.0
-ENEMY_SPEED_MAX_CAP     :: 180.0
+ENEMY_SPEED_MIN_CAP     :: 100.0
+ENEMY_SPEED_MAX_CAP     :: 140.0
 
 main :: proc() {
 	rl.InitWindow(SCREEN_W, SCREEN_H, "Odin + Raylib - Square vs Circles")
@@ -149,7 +149,7 @@ main :: proc() {
 
 	// Upgradeable weapon stats, purchased in the skills panel.
 	bullet_radius:       f32 = 2 // size of each fired bullet
-	shoot_cooldown_time: f32 = 1.2 // seconds between shots
+	shoot_cooldown_time: f32 = COOLDOWN_BASE // seconds between shots
 
 	// Bomb visual feedback: >0 for a brief moment right after detonation
 	// so we can draw an expanding ring at the player's position.
@@ -174,7 +174,7 @@ main :: proc() {
 	game_over := false
 
 	// Timer that periodically rolls for an enemy player spawn.
-	enemy_player_spawn_timer: f32 = 10.0
+	enemy_player_spawn_timer: f32 = ENEMY_PLAYER_CHECK_INTERVAL
 
 	// Skills menu state. Opening it pauses gameplay (movement, spawning,
 	// shooting, enemy/bullet updates) without closing the window.
@@ -210,7 +210,7 @@ main :: proc() {
 				player_health = 10
 				player_speed = 100
 				bullet_radius = 2
-				shoot_cooldown_time = 1.2
+				shoot_cooldown_time = COOLDOWN_BASE
 				bomb_flash_timer = 0
 				clear(&enemies)
 				clear(&bullets)
@@ -221,7 +221,7 @@ main :: proc() {
 				enemy_spawn_interval = 2.0
 				enemy_speed_min = 40.0
 				enemy_speed_max = 80.0
-				enemy_player_spawn_timer = 10.0
+				enemy_player_spawn_timer = ENEMY_PLAYER_CHECK_INTERVAL
 				skills_open = false
 				game_over = false
 			}
@@ -419,9 +419,9 @@ main :: proc() {
 				// =================================================
 				enemy_player_spawn_timer -= dt
 				if enemy_player_spawn_timer <= 0 {
-					enemy_player_spawn_timer = 10.0
+					enemy_player_spawn_timer = ENEMY_PLAYER_CHECK_INTERVAL
 
-					if rand.float32() < 0.15 {
+					if rand.float32() < ENEMY_PLAYER_SPAWN_CHANCE {
 						side := rand.int31_max(4)
 						spawn_pos: [2]f32
 						margin: f32 = 60
@@ -470,7 +470,7 @@ main :: proc() {
 						enemy.alive = false // enemy is consumed on contact
 						if player_hit_timer <= 0 {
 							player_health -= 1
-							player_hit_timer = 0.5 // ~1 sec of flash/invincibility
+							player_hit_timer = 0.25 // ~1 sec of flash/invincibility
 							if player_health <= 0 {
 								game_over = true
 							}

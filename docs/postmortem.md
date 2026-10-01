@@ -7,10 +7,10 @@ twist_from_ideas_list: no      # yes | adapted | no
 how_far_from_arena: ""         # small-twist | substantial | barely-recognizable
 
 # Tools and models (lists; exact names as the tool shows them)
-tools: []                      # e.g. [claude-code, chatgpt-web]
-models: []                     # e.g. [claude-sonnet-5, gpt-5-mini]
-primary_model: ""              # the one that did most of the work
-plan: ""                       # free | student | paid-personal | api | none
+tools: [claude-code, DeepSeek]                      # e.g. [claude-code, chatgpt-web]
+models: [claude-sonnet-5, V4.1-Flash]                     # e.g. [claude-sonnet-5, gpt-5-mini]
+primary_model: "claude-code"              # the one that did most of the work
+plan: "free"                       # free | student | paid-personal | api | none
 agent_instructions_file: no    # yes | no  (CLAUDE.md, AGENTS.md, .cursorrules, ...)
 
 # Totals (must match jam-log.csv)
