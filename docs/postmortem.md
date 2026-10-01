@@ -1,10 +1,10 @@
 ---
 # ---- Fill every field. Use `unavailable` (with a reason in tokens_source) rather than guessing. ----
-game_title: ""
-twist_one_liner: ""            # "ARENA, but ..."
-twist_category: ""             # rule-bender | enemies | player-progression | world | other
+game_title: "OutBreak Survival"
+twist_one_liner: "ARENA, but a human enemy tries killing you with the zombies"            # "ARENA, but ..."
+twist_category: "enemies"             # rule-bender | enemies | player-progression | world | other
 twist_from_ideas_list: no      # yes | adapted | no
-how_far_from_arena: ""         # small-twist | substantial | barely-recognizable
+how_far_from_arena: "small-twist"         # small-twist | substantial | barely-recognizable
 
 # Tools and models (lists; exact names as the tool shows them)
 tools: [claude-code, DeepSeek]                      # e.g. [claude-code, chatgpt-web]
@@ -14,27 +14,27 @@ plan: "free"                       # free | student | paid-personal | api | none
 agent_instructions_file: no    # yes | no  (CLAUDE.md, AGENTS.md, .cursorrules, ...)
 
 # Totals (must match jam-log.csv)
-sessions: 0
-total_minutes: 0
-total_prompts: 0
-total_tokens_in: 0             # or unavailable
-total_tokens_out: 0            # or unavailable
-tokens_source: ""              # ccusage | cost-command | dashboard | cli-summary | estimated | unavailable (+ why)
+sessions: 4
+total_minutes: 200
+total_prompts: 36
+total_tokens_in: unavailable            # or unavailable
+total_tokens_out: unavailable            # or unavailable
+tokens_source: "ccusage dsusage"              # ccusage | cost-command | dashboard | cli-summary | estimated | unavailable (+ why)
 
 # Your estimate of who wrote the code in the final build (should add to 100)
-code_share_llm_pct: 0          # accepted from an LLM with little or no change
-code_share_mixed_pct: 0        # LLM-generated then substantially edited by you
-code_share_hand_pct: 0         # written by you
+code_share_llm_pct: 90          # accepted from an LLM with little or no change
+code_share_mixed_pct: 6        # LLM-generated then substantially edited by you
+code_share_hand_pct: 4         # written by you
 
 # Before this jam
-odin_experience_before: ""     # none | under-10h | 10-50h | over-50h
-llm_coding_before: ""          # never | occasional | weekly | daily
-gamedev_experience_before: ""  # none | a-tutorial | a-few-small-games | shipped-something
+odin_experience_before: "none"     # none | under-10h | 10-50h | over-50h
+llm_coding_before: "occasional"          # never | occasional | weekly | daily
+gamedev_experience_before: "a-few-small-games"  # none | a-tutorial | a-few-small-games | shipped-something
 
 transcripts_shared: no         # yes | no  (optional, ungraded)
 ---
 
-# Postmortem — <game title>
+# Postmortem — <OutBreak Survival>
 
 > Your own words. Grammar and spelling help from a tool is fine; the argument
 > and the evidence are yours. Aim for 1-2 pages plus the table.
@@ -65,14 +65,14 @@ without changes? `help` = 1 (got in the way) - 5 (did it well).
 
 | feature | who | prompts | first try? | minutes | help 1-5 | note |
 |---|---|--:|---|--:|:--:|---|
-| window, loop, game states, restart | | | | | | |
-| player movement | | | | | | |
-| shooting | | | | | | |
-| enemies and spawning | | | | | | |
-| health, damage, hit feedback | | | | | | |
-| difficulty over time | | | | | | |
-| HUD | | | | | | |
-| (optional) sprites / sound | | | | | | |
+| window, loop, game states, restart |llm | | | | | |
+| player movement | llm| | | | | |
+| shooting |llm | | | | | |
+| enemies and spawning | llm| | | | | |
+| health, damage, hit feedback | mixed| | | | | |
+| difficulty over time | mixed | | | | | |
+| HUD | me | | | | | |
+| (optional) sprites / sound | me | | | | | |
 | *your feature* | | | | | | |
 | *your feature* | | | | | | |
 | *your feature* | | | | | | |
