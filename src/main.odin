@@ -54,7 +54,7 @@ MAX_PLAYER_SPEED   :: 300.0
 SPEED_PER_PURCHASE :: 10.0
 
 // ---------------- Shop costs / caps ----------------
-HEAL_COST  :: 20
+HEAL_COST  :: 8
 SPEED_COST :: 6
 
 BULLET_RADIUS_BASE         :: 2.0
