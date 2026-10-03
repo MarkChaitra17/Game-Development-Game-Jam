@@ -2,4 +2,8 @@ session,date,minutes,tool,model,tokens_in,tokens_out,tokens_source,prompts,featu
 1,2026-09-16,10,claude-code,claude-sonnet-5,N/A,N/A,ccusage incl. cache,8,window;states;movement;player;enemies;restart-screen;health,5,"best: code worked perfectly first try;"
 2,2026-09-27,100,claude-code,claude-sonnet-5,N/A,N/A,ccusage incl. cache,20,assets;animation;skills-control;waves;points;movement-improvements,5,"best: Implemented skills options in one go; Bad: Changed movement without prompting"
 3,2026-09-28,40,Deep-seek, DeepSeek-V4.1-Flash,N/A,N/A,dsusage incl. cache,7,movement-improvements;skills-balancing,4,"best: Fixed movement issues; Bad: Changed zombie spawn without being prompted; made variables but did not use them;"
-4,2026-09-29,20,claude-code, claude-sonnet-5,N/A,N/A,ccusage incl. cache,1,skills-points-balancing;player-attrribute-balancing;added-enemy-player,3,"best: Implemented new enemy types and was balanced; Bad: Would not use variables made for various attributes;"
+4,2026-09-29,10,claude-code, claude-sonnet-5,N/A,N/A,ccusage incl. cache,1,skills-points-balancing;player-attrribute-balancing;added-enemy-player,3,"best: Implemented new enemy types and was balanced; Bad: Would not use variables made for various attributes;"
+5,2026-10-1,30,none, N/A,N/A,N/A, N/A,N/A,skills-points-balancing;player-attrribute-balancing;,N/A,N/A
+6,2026-10-1,15,none, N/A,N/A,N/A, N/A,N/A,new-assets;tuning-enemy-values,N/A,N/A
+7,2026-10-1,10,claude-code, claude-sonnet-5,N/A,N/A,ccusage incl. cache,4,new-skills;bomb-added,4,"best: Added new skills and bomb feature; Bad: code gave errors multiple times, had to prompt multiple times to fix it;"
+8,2026-10-2,20,claude-code, claude-sonnet-5,N/A,N/A,ccusage incl. cache,2,increased-enemy-shooter-difficulty; tuned variables,5,"best: Added enempy shooter feature first try; Bad: Changed variables without prompting;"
